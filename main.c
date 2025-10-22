@@ -1,13 +1,13 @@
-// Gerekli kütüphaneyi programa dahil ediyoruz.
-// stdio.h: Standart Girdi/Çıktı fonksiyonları için (printf, scanf gibi)
+// Gerekli kÃ¼tÃ¼phaneyi programa dahil ediyoruz.
+// stdio.h: Standart Girdi/Ã‡Ä±ktÄ± fonksiyonlarÄ± iÃ§in (printf, scanf gibi)
 #include <stdio.h>
-#include <stdlib.h> // Hata durumunda programdan çıkmak için eklendi (return 1;)
+#include <stdlib.h> // Hata durumunda programdan Ã§Ä±kmak iÃ§in eklendi (return 1;)
 
-// --- ANA PROGRAM BAŞLANGICI ---
+// --- ANA PROGRAM BAÅLANGICI ---
 int main() {
     
-    // Tüm finansal verilerimizi ondalıklı olabileceği için 'double' tipinde tanımlıyoruz.
-    // 'double', 'float' tipine göre daha yüksek hassasiyet sunar.
+    // TÃ¼m finansal verilerimizi ondalÄ±klÄ± olabileceÄŸi iÃ§in 'double' tipinde tanÄ±mlÄ±yoruz.
+    // 'double', 'float' tipine gÃ¶re daha yÃ¼ksek hassasiyet sunar.
     double yatirim_getirisi;
     double risksiz_faiz_orani;
     double standart_sapma;
@@ -16,45 +16,46 @@ int main() {
     printf("--- Sharpe Orani Hesaplama Programi ---\n");
     printf("Lutfen degerleri yuzde (%) isareti olmadan girin (orn: 15, 5, 12)\n\n");
 
-    // 1. GİRDİ: YATIRIM GETİRİSİ
+    // 1. GÄ°RDÄ°: YATIRIM GETÄ°RÄ°SÄ°
     printf("1. Yatirim Getirisi (orn: 15): ");
-    // Kullanıcıdan double tipinde bir veri almak için scanf'te "%lf" belirtecini kullanıyoruz.
-    // '&' işareti, girilen değerin hangi değişkenin hafıza adresine yazılacağını belirtir.
+    // KullanÄ±cÄ±dan double tipinde bir veri almak iÃ§in scanf'te "%lf" belirtecini kullanÄ±yoruz.
+    // '&' iÅŸareti, girilen deÄŸerin hangi deÄŸiÅŸkenin hafÄ±za adresine yazÄ±lacaÄŸÄ±nÄ± belirtir.
     if (scanf("%lf", &yatirim_getirisi) != 1) {
         printf("HATA: Gecersiz girdi.\n");
         return 1;
     }
 
-    // 2. GİRDİ: RİSKSİZ FAİZ ORANI
+    // 2. GÄ°RDÄ°: RÄ°SKSÄ°Z FAÄ°Z ORANI
     printf("2. Risksiz Faiz Orani (orn: 5): ");
     if (scanf("%lf", &risksiz_faiz_orani) != 1) {
         printf("HATA: Gecersiz girdi.\n");
         return 1;
     }
 
-    // 3. GİRDİ: STANDART SAPMA
+    // 3. GÄ°RDÄ°: STANDART SAPMA
     printf("3. Standart Sapma (Portfoy Riski) (orn: 12): ");
     if (scanf("%lf", &standart_sapma) != 1) {
         printf("HATA: Gecersiz girdi.\n");
         return 1;
     }
 
-    // --- KRİTİK KONTROL ---
-    // Formülde standart sapma paydada yer alır. 
-    // Matematikte bir sayıyı sıfıra bölmek tanımsızdır (ve programı çökertir).
-    // Bu yüzden standart sapmanın 0 olup olmadığını kontrol etmeliyiz.
+    // --- KRÄ°TÄ°K KONTROL ---
+    // FormÃ¼lde standart sapma paydada yer alÄ±r. 
+    // Matematikte bir sayÄ±yÄ± sÄ±fÄ±ra bÃ¶lmek tanÄ±msÄ±zdÄ±r (ve programÄ± Ã§Ã¶kertir).
+    //EÄŸerki ben bu kontrolÃ¼ yapmasaydÄ±m bu program runtime eror verirdi.
+    // Bu yÃ¼zden standart sapmanÄ±n 0 olup olmadÄ±ÄŸÄ±nÄ± kontrol etmeliyiz.
     if (standart_sapma == 0) {
         printf("\nHATA: Standart Sapma (payda) 0 olamaz. Hesaplama yapilamiyor.\n");
-        return 1; // Programı bir hata koduyla sonlandır.
+        return 1; // ProgramÄ± bir hata koduyla sonlandÄ±r.
     }
 
     // --- HESAPLAMA ---
     sharpe_orani = (yatirim_getirisi - risksiz_faiz_orani) / standart_sapma;
 
-    // --- SONUÇLARI YAZDIRMA ---
+    // --- SONUÃ‡LARI YAZDIRMA ---
     printf("\n--- Hesaplama Sonucu ---\n");
-    // "%.2f" belirteci, ondalıklı sayıyı virgülden sonra 2 basamak gösterecek şekilde formatlar
-    // Tıpkı örnekteki 0.83 gibi.
+    // "%.2f" belirteci, ondalÄ±klÄ± sayÄ±yÄ± virgÃ¼lden sonra 2 basamak gÃ¶sterecek ÅŸekilde formatlar
+    // TÄ±pkÄ± Ã¶rnekteki 0.83 gibi.
     printf("Hesaplanan Sharpe Orani: %.2f\n", sharpe_orani);
 
     // --- YORUMLAMA ---
@@ -68,6 +69,7 @@ int main() {
         printf("Degerlendirme: Yeterince iyi degil (1'in altinda)\n");
     }
 
-    // main fonksiyonu başarılı bir şekilde bittiğinde 0 döndürür.
+    // main fonksiyonu baÅŸarÄ±lÄ± bir ÅŸekilde bittiÄŸinde 0 dÃ¶ndÃ¼rÃ¼r.
     return 0;
 }
+
