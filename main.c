@@ -42,7 +42,7 @@ int main() {
     // --- KRİTİK KONTROL ---
     // Formülde standart sapma paydada yer alır. 
     // Matematikte bir sayıyı sıfıra bölmek tanımsızdır (ve programı çökertir).
-    //Eğerki ben bu kontrolü yapmasaydım bu program runtime eror verirdi.
+    // Eğerki ben bu kontrolü yapmasaydım bu program runtime eror verirdi.
     // Bu yüzden standart sapmanın 0 olup olmadığını kontrol etmeliyiz.
     if (standart_sapma == 0) {
         printf("\nHATA: Standart Sapma (payda) 0 olamaz. Hesaplama yapilamiyor.\n");
@@ -72,4 +72,5 @@ int main() {
     // main fonksiyonu başarılı bir şekilde bittiğinde 0 döndürür.
     return 0;
 }
+
 
