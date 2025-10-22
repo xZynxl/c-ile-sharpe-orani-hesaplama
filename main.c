@@ -55,7 +55,6 @@ int main() {
     // --- SONUÇLARI YAZDIRMA ---
     printf("\n--- Hesaplama Sonucu ---\n");
     // "%.2f" belirteci, ondalıklı sayıyı virgülden sonra 2 basamak gösterecek şekilde formatlar
-    // Tıpkı örnekteki 0.83 gibi.
     printf("Hesaplanan Sharpe Orani: %.2f\n", sharpe_orani);
 
     // --- YORUMLAMA ---
@@ -72,5 +71,4 @@ int main() {
     // main fonksiyonu başarılı bir şekilde bittiğinde 0 döndürür.
     return 0;
 }
-
 
